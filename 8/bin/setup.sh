@@ -12,16 +12,8 @@ ln -sf /bin/true /usr/bin/ischroot
 sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list
 apt-get update
 
-# install add-apt-repository command for adding repos.
-apt-get install -y --no-install-recommends software-properties-common
-
-# set US locale
-apt-get install -y --no-install-recommends locales
-locale-gen en_US
-
 # install some often used commands
-apt-get install -y --no-install-recommends wget curl zip unzip patch less git vim nano psmisc
-
+apt-get install -y --no-install-recommends python3
 # installing syslog-ng, with workaround https://bugs.launchpad.net/ubuntu/+source/syslog-ng/+bug/1242173
 apt-get install -y --no-install-recommends syslog-ng syslog-ng-core
 # can't access /proc/kmsg. https://groups.google.com/forum/#!topic/docker-user/446yoB0Vx6w
@@ -31,13 +23,13 @@ sed -i -E 's/^(\s*)system\(\);/\1unix-stream("\/dev\/log");/' /etc/syslog-ng/sys
 apt-get install -y --no-install-recommends supervisor
 
 # setup cron and logrotate
-apt-get install -y --no-install-recommends cron logrotate
+apt-get install -y --no-install-recommends cron
 
 # do a update on all installed packages
 apt-get -y --no-install-recommends dist-upgrade
 
 # clean up after
-apt-get clean all
+apt-get clean all && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 mkdir /etc/my_runonce
 mkdir /etc/my_runalways
