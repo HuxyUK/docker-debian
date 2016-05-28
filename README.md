@@ -1,5 +1,5 @@
 ## Debian Wheezy/Jessie version with some extra commands
- [![Docker Hub; nimmis/debian](https://img.shields.io/badge/dockerhub-nimmis%2Fdebian-green.svg)](https://registry.hub.docker.com/u/nimmis/debian)
+ [![Docker Hub; huxy/docker-debian](https://img.shields.io/badge/dockerhub-nimmis%2Fdebian-green.svg)](https://registry.hub.docker.com/h/huxy/docker-debian)
 
 This is a docker images with different versions of Debian with a working init process and syslog
 

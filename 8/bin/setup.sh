@@ -13,7 +13,7 @@ sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list
 apt-get update
 
 # install some often used commands
-apt-get install -y --no-install-recommends python3
+apt-get install -y --no-install-recommends python3 nano
 # installing syslog-ng, with workaround https://bugs.launchpad.net/ubuntu/+source/syslog-ng/+bug/1242173
 apt-get install -y --no-install-recommends syslog-ng syslog-ng-core
 # can't access /proc/kmsg. https://groups.google.com/forum/#!topic/docker-user/446yoB0Vx6w
